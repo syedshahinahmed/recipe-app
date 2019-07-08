@@ -8,7 +8,11 @@ class App extends Component {
   getRecipe = e => {
     //Preventing Default Behaviour
     e.preventDefault();
-    console.log("Working!!!");
+
+    //getting user input
+    const recipeName = e.target.elements.recipeName.value;
+
+    console.log(recipeName);
   };
 
   render() {
