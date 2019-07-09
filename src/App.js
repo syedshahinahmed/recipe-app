@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import { async } from "q";
+import Recipes from "./components/Recipes";
 
 // .Edamam API ID
 const APP_ID = "ee8cf5b2";
@@ -11,6 +12,11 @@ const APP_ID = "ee8cf5b2";
 const APP_KEY = "9cc9114c66e8fda5a47697bf6aaa0032";
 
 class App extends Component {
+  //Initial State
+  state = {
+    recipes: []
+  };
+
   //Getting Recipe
   getRecipe = async e => {
     //Preventing Default Behaviour
@@ -28,7 +34,10 @@ class App extends Component {
     // Converting Data to JSON
     const data = await api__call.json();
 
-    console.log(data);
+    // setting state
+    this.setState({ recipes: data.hits });
+
+    console.log(this.state.recipes);
   };
 
   render() {
@@ -38,6 +47,7 @@ class App extends Component {
           <h1>Hello World</h1>
         </header>
         <Form getRecipe={this.getRecipe} />
+        <Recipes recipes={this.state.recipes} />
       </div>
     );
   }
