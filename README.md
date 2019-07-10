@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+I have created this app to help people find recipe they want 
+
 ## Available Scripts
 
 In the project directory, you can run:
