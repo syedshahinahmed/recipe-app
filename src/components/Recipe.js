@@ -5,3 +5,5 @@ const Recipe = () => (
     <p>Recipe Component!!</p>
   </div>
 );
+
+export default Recipe;
