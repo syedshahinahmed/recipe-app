@@ -6,18 +6,29 @@ const Recipes = props => {
       <div className="row">
         {props.recipes.map(recipe => {
           return (
-            <div key={recipe.recipe.label} className="col-md-4">
-              <img src={recipe.recipe.image} alt={recipe.recipe.label} />
-              <h3>{recipe.recipe.label}</h3>
-              <p>Calories: {recipe.recipe.calories}</p>
-              <p>Diet: {recipe.recipe.dietLabels[0]}</p>
-              <p>
-                totalNutrients: {recipe.recipe.totalNutrients.CA.label}{" "}
-                <span>
-                  {recipe.recipe.totalNutrients.CA.quantity.toFixed(1)}
-                </span>
-                <span>{recipe.recipe.totalNutrients.CA.unit}</span>
-              </p>
+            <div
+              key={recipe.recipe.label}
+              className="col-md-4"
+              style={{ marginBottom: "2rem" }}
+            >
+              <div className="recipes__container">
+                <img
+                  className="recipes__container-img"
+                  src={recipe.recipe.image}
+                  alt={recipe.recipe.label}
+                />
+                <div className="recipes__body">
+                  <h5 className="recipes__title">
+                    {recipe.recipe.label.length < 20
+                      ? `${recipe.recipe.label}`
+                      : `${recipe.recipe.label.substring(0, 25)}...`}
+                  </h5>
+                  <p className="recipes__subtitle">
+                    Publisher: <span>{recipe.recipe.source}</span>
+                  </p>
+                </div>
+                <button className="recipes_btn">View Recipe</button>
+              </div>
             </div>
           );
         })}
