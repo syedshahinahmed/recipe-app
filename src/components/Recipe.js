@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { async } from "q";
+import { Link } from "react-router-dom";
 
 // .Edamam API ID
 const APP_ID = "ee8cf5b2";
@@ -25,15 +26,17 @@ class Recipe extends Component {
       `https://api.edamam.com/search?q=${title}&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
 
+    // https://cors-anywhere.herokuapp.com/
     //
     const res = await req.json();
 
     //
     this.setState({ activeRecipes: res.hits[0].recipe });
     console.log(this.state.activeRecipes);
+    console.log(res.hits);
   };
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     const myRecipe = this.state.activeRecipes;
     return (
       <div className="container">
@@ -51,10 +54,14 @@ class Recipe extends Component {
             <p className="active-recipe__website">
               Website:{" "}
               <span>
-                <a href={myRecipe.url}>{myRecipe.url}</a>
+                <a href={myRecipe.url} target="_blank">
+                  {myRecipe.url}
+                </a>
               </span>
             </p>
-            <button className="active-recipe__button">Go Home</button>
+            <button className="active-recipe__button">
+              <Link to="/">Go Home</Link>
+            </button>
           </div>
         )}
       </div>
