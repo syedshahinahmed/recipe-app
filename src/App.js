@@ -40,6 +40,25 @@ class App extends Component {
     console.log(this.state.recipes);
   };
 
+  // Pulling Data from LocalStorage using componentDidMount function
+  componentDidMount = () => {
+    const localJson = localStorage.getItem("ourRecipe");
+
+    //Converting data back to JSON format
+
+    const localJsonRecipe = JSON.parse(localJson);
+
+    // Now setting our state to local recipe state
+
+    this.setState({ recipes: localJsonRecipe });
+  };
+
+  // Saving Data to LocalStorage using componentDidUpdate function
+  componentDidUpdate = () => {
+    const localRecipes = JSON.stringify(this.state.recipes);
+    localStorage.setItem("ourRecipe", localRecipes);
+  };
+
   render() {
     return (
       <div className="App">

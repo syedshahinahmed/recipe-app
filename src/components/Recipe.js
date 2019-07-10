@@ -54,7 +54,11 @@ class Recipe extends Component {
             <p className="active-recipe__website">
               Website:{" "}
               <span>
-                <a href={myRecipe.url} target="_blank">
+                <a
+                  href={myRecipe.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {myRecipe.url}
                 </a>
               </span>
