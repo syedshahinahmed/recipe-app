@@ -40,13 +40,26 @@ input:-webkit-autofill {
 .form__btn {
   border: solid 2px #e74c3c;
   background: transparent;
-  padding: 0.2rem 0.9rem;
+  padding: 0.4rem 1rem;
   margin: 0 0.2rem;
   border-radius: 1px;
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 500;
   margin-left: 0.7rem;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+}
+
+.form__btn:hover {
+  border: solid 2px #e49188;
+  transition: 0.5s ease-in-out;
+  background-color: #e49188;
+  /* color: #fff !important; */
+  /* border-radius: 10px; */
+}
+.form__btn:focus {
+  outline: none;
 }
 
 /* Recipe Component */
@@ -100,6 +113,13 @@ img {
   margin-left: 0.7rem;
   outline: none;
   transition: 0.5s ease-in-out;
+  display: block;
+  border-radius: 10px;
+}
+.recipes_btn a {
+  display: block;
+  text-decoration: none;
+  color: #000 !important;
 }
 .recipes_btn:focus {
   outline: none;
@@ -109,5 +129,10 @@ img {
   border: solid 2px #e49188;
   transition: 0.5s ease-in-out;
   background-color: #e49188;
-  color: #fff;
+  /* color: #fff !important; */
 }
+
+/* .recipes_btn a:hover {
+  color: #fff !important;
+  transition: 0.5s ease-in-out;
+} */
