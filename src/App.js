@@ -25,7 +25,7 @@ class App extends Component {
     //getting user input
     const recipeName = e.target.elements.recipeName.value;
 
-    // api call
+    // Making API call
 
     const api__call = await fetch(
       `https://api.edamam.com/search?q=${recipeName}&app_id=${APP_ID}&app_key=${APP_KEY}`

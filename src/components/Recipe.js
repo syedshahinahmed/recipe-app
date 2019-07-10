@@ -21,22 +21,23 @@ class Recipe extends Component {
     const title = this.props.location.state.recipe;
     // console.log(title);
 
-    //
+    // Making API Request
     const req = await fetch(
       `https://api.edamam.com/search?q=${title}&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
 
-    // https://cors-anywhere.herokuapp.com/
-    //
+    // if link doest work we add these to make it work "https://cors-anywhere.herokuapp.com/"
+
+    // Getting API Response
     const res = await req.json();
 
-    //
+    // Setting Inital state data to API data
     this.setState({ activeRecipes: res.hits[0].recipe });
-    console.log(this.state.activeRecipes);
-    console.log(res.hits);
+    // console.log(this.state.activeRecipes);
+    // console.log(res.hits);
   };
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const myRecipe = this.state.activeRecipes;
     return (
       <div className="container">
